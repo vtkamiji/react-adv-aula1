@@ -1,3 +1,5 @@
+https://www.slideshare.net/PerconaPerformance/boost-performance-with-my-s-q-l-51-partitions
+
 CREATE TABLE data6 (
     `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
     `timestamp` datetime NOT NULL,
@@ -22,3 +24,28 @@ SUBPARTITIONS 12 (
     PARTITION p2027 VALUES LESS THAN (2028),
     PARTITION pmax VALUES LESS THAN MAXVALUE
 );
+
+https://www.slideshare.net/PerconaPerformance/boost-performance-with-my-s-q-l-51-partitions
+
+insert into teste.data(timestamp, month, user, id_acao, value)
+values (STR_TO_DATE('01-04-2020', '%d-%m-%Y'), 0, 1, 1, 100.00);
+insert into teste.data(timestamp, month, user, id_acao, value)
+values (STR_TO_DATE('01-04-2020', '%d-%m-%Y'), 0, 1, 1, 200.00);
+insert into teste.data(timestamp, month, user, id_acao, value)
+values (STR_TO_DATE('01-04-2020', '%d-%m-%Y'), 0, 1, 1, 600.00);
+insert into teste.data(timestamp, month, user, id_acao, value)
+values (STR_TO_DATE('01-04-2020', '%d-%m-%Y'), 0, 1, 2, 300.00);
+insert into teste.data(timestamp, month, user, id_acao, value)
+values (STR_TO_DATE('01-04-2020', '%d-%m-%Y'), 0, 1, 2, 800.00);
+insert into teste.data(timestamp, month, user, id_acao, value)
+values (STR_TO_DATE('01-04-2020', '%d-%m-%Y'), 0, 1, 2, 600.00);
+insert into teste.data(timestamp, month, user, id_acao, value)
+values (STR_TO_DATE('01-04-2020', '%d-%m-%Y'), 0, 2, 1, 500.00);
+
+
+EXPLAIN PARTITIONS SELECT count(*) FROM teste.data2 WHERE YEAR(timestamp) = 2017;
+
+EXPLAIN PARTITIONS
+SELECT * FROM teste.data WHERE timestamp between '2020-01-01' and '2020-12-31'
+and month = 0 and user = 1 and id_acao = 1
+
