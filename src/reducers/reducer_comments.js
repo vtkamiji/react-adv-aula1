@@ -6,7 +6,7 @@ export default function (state = {}, action) {
         case FETCH_COMMENTS:
             return _.mapKeys(action.payload.data, 'id');
         case ADD_COMMENT:
-            return { ...state, [action.payload.data.id]: action.payload.data};
+            return { ...state, [action.payload.data]: action.payload.data};
         default:
             return state;
     }
