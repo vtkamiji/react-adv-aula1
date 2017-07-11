@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import {addComment} from '../actions/index';
+
+//importa todos os actions da pasta actions
+import * as actions from '../actions';
 
 class CommentBox extends Component {
 
@@ -40,4 +42,4 @@ class CommentBox extends Component {
     }
 }
 
-export default connect(null, { addComment })(CommentBox);
+export default connect(null, actions)(CommentBox);

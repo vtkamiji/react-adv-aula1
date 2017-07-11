@@ -26,3 +26,8 @@ Click [here](https://github.com/StephenGrider/ReactStarter/releases) then downlo
 
 chai-jquery
 https://github.com/chaijs/chai-jquery
+
+React Addons Test Utilities
+https://facebook.github.io/react/docs/test-utils
+    #simulate
+

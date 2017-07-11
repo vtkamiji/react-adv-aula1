@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchComments } from '../actions/index';
+import _ from 'lodash';
 
 class CommentList extends Component {
 
-    componentDidMount() {
-        this.props.fetchComments();
-    }
+    // componentDidMount() {
+    //     this.props.fetchComments();
+    // }
 
     renderList() {
         return _.map(this.props.comments, comment => {

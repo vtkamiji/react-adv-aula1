@@ -1,4 +1,4 @@
-import {renderComponent, expect} from '../test_helper';
+import { renderComponent, expect } from '../test_helper';
 import CommentList from '../../src/components/comment_list';
 
 describe('CommentList', () => {
@@ -8,7 +8,7 @@ describe('CommentList', () => {
         const props =
         {comments:
             {'comment1': 'comment1', 'comment2': 'comment2'}};
-        component = renderComponent(CommentList,null,props);
+        component = renderComponent(CommentList, props, props);
     });
 
     it('show an LI for each comment', () => {
@@ -16,7 +16,7 @@ describe('CommentList', () => {
     });
 
     it('shows each comment that is provided', () => {
-        expect(comment).to.contain('comment1');
-        expect(comment).to.contain('comment2');
+        expect(component.find('li')).to.contain('comment1');
+        expect(component.find('li')).to.contain('comment2');
     });
 });
